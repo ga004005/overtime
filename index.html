@@ -82,7 +82,7 @@
 
     const nightAllowance = nightDays * 340;
     const totalBase = baseSalary + nightAllowance;
-    const hourlyRate = totalBase / 240;
+    const hourlyRate = Math.round(totalBase / 240);
 
     const amtA = a * 1.34 * hourlyRate;
     const amtB = b * 1.67 * hourlyRate;
@@ -90,19 +90,19 @@
     const amtD = d * 1.67 * hourlyRate;
     const amtE = e * 2.67 * hourlyRate;
 
-    const totalOT = amtA + amtB + amtC + amtD + amtE;
+    const totalOT = Math.round(amtA + amtB + amtC + amtD + amtE);
     const grandTotal = totalBase + totalOT;
 
-    document.getElementById('hourlyRate').innerText = hourlyRate.toFixed(2);
+    document.getElementById('hourlyRate').innerText = hourlyRate.toLocaleString();
     document.getElementById('totalOT').innerText = Math.round(totalOT).toLocaleString();
     document.getElementById('grandTotal').innerText = Math.round(grandTotal).toLocaleString();
 
     document.getElementById('nightAllowanceVal').innerText = Math.round(nightAllowance).toLocaleString();
-    document.getElementById('amtA').innerText = Math.round(amtA).toLocaleString();
-    document.getElementById('amtB').innerText = Math.round(amtB).toLocaleString();
-    document.getElementById('amtC').innerText = Math.round(amtC).toLocaleString();
-    document.getElementById('amtD').innerText = Math.round(amtD).toLocaleString();
-    document.getElementById('amtE').innerText = Math.round(amtE).toLocaleString();
+    document.getElementById('amtA').innerText = amtA.toFixed(2);
+    document.getElementById('amtB').innerText = amtB.toFixed(2);
+    document.getElementById('amtC').innerText = amtC.toFixed(2);
+    document.getElementById('amtD').innerText = amtD.toFixed(2);
+    document.getElementById('amtE').innerText = amtE.toFixed(2);
   }
 
   function resetAll() {
